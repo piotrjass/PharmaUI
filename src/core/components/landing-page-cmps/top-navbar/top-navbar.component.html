@@ -1,0 +1,7 @@
+<section
+  class="flex gap-10 p-5 w-[100%] bg-blue-100 justify-center items-center"
+>
+  @for(option of options; track option) {
+  <app-top-navbar-item [text]="option.name"></app-top-navbar-item>
+  }
+</section>
