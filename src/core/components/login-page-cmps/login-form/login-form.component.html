@@ -1,0 +1,41 @@
+<form
+  action=""
+  class="flex flex-col gap-5 text-center font-semibold backdrop-blur-lg rounded-lg border-black p-10 drop-shadow-lg"
+>
+  <label for="" class="text-xl">Email</label>
+  <input
+    type="email"
+    name=""
+    id=""
+    class="rounded-full p-3 bg-transparent shadow-lg border border-gray-700 text-gray-600"
+  />
+  <label for="" class="text-xl">Hasło</label>
+  <input
+    type="password"
+    name=""
+    id=""
+    class="rounded-full p-3 bg-transparent shadow-lg border border-gray-700 text-gray-600"
+  />
+  @if (createNewAccount) {
+  <label for="" class="text-xl">Powtórz hasło</label>
+  <input
+    type="password"
+    name=""
+    id=""
+    class="rounded-full p-3 bg-transparent shadow-lg border border-gray-700 text-gray-600"
+  />
+  }
+  <button class="text-sm text-gray-800" (click)="toggleCreateNewAccount()">
+    Nie masz konta?
+  </button>
+  <button
+    class="text-lg transition-all duration-300 hover:font-bold"
+    routerLink="/hello"
+  >
+    @if (!createNewAccount) {
+    <span> Zaloguj się</span>
+    } @else () {
+    <span>Załóż konto</span>
+    }
+  </button>
+</form>

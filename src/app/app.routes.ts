@@ -16,7 +16,7 @@ export const routes: Routes = [
     title: 'Home',
   },
   {
-    path: 'hello!',
+    path: 'hello',
     component: HelloPageComponent,
     title: 'Home',
   },
