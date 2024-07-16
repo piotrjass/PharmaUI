@@ -1,12 +1,17 @@
 <div
-  class="rounded-2xl p-5 w-[15vw] h-[20vh] shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center hover:cursor-pointer"
+  class="rounded-2xl p-5 w-[15vw] min-w-[200px] h-[20vh] shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center hover:cursor-pointer"
+  [routerLink]="route"
 >
   <div class="flex flex-col items-center justify-center gap-3">
     <ng-icon
       [name]="icon"
       class="text-7xl drop-shadow-lg mx-auto"
-      color=""
+      color="mint"
     ></ng-icon>
     <p class="font-bold drop-shadow-md">{{ title }}</p>
+
+    @if (!isActive) {
+    <p class="text-sm text-gray-500 underline">Sekcja nie jest aktywa!</p>
+    }
   </div>
 </div>

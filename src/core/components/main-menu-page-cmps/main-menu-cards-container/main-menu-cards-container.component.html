@@ -1,8 +1,10 @@
 <div class="flex gap-10 flex-wrap p-10 items-center justify-center">
   @for (section of sections; track section) {
   <app-main-menu-card
+    [route]="section.route"
     [title]="section.title"
     [icon]="section.icon"
+    [isActive]="section.isActive"
   ></app-main-menu-card>
   }
 </div>

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterModule, RouterLink } from '@angular/router';
 //
 import { MainMenuCardComponent } from '../main-menu-card/main-menu-card.component';
 //
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+
 import {
   bootstrapFileSpreadsheet,
   bootstrapArchive,
@@ -15,7 +17,7 @@ import {
 @Component({
   selector: 'app-main-menu-cards-container',
   standalone: true,
-  imports: [MainMenuCardComponent],
+  imports: [MainMenuCardComponent, RouterModule, RouterLink],
   templateUrl: './main-menu-cards-container.component.html',
   styleUrl: './main-menu-cards-container.component.css',
   viewProviders: [
@@ -34,26 +36,34 @@ export class MainMenuCardsContainerComponent {
     {
       title: 'Przegląd lekowy',
       icon: 'bootstrapFileSpreadsheet',
+      isActive: true,
+      route: '/overview',
     },
     {
       title: 'Archiwum',
       icon: 'bootstrapArchive',
+      isActive: false,
     },
     {
       title: 'Baza przeglądów',
       icon: 'bootstrapStack',
+      isActive: false,
     },
     {
       title: 'Forum',
       icon: 'bootstrapChatLeftQuoteFill',
+      isActive: false,
     },
     {
       title: 'Baza leków',
       icon: 'bootstrapCapsulePill',
+      isActive: true,
+      route: '/drugs-base',
     },
     {
       title: 'Edukacja',
       icon: 'bootstrapPenFill',
+      isActive: false,
     },
   ];
 }

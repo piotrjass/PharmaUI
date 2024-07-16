@@ -4,6 +4,8 @@ import { LandingPageComponent } from '../shared/pages/landing-page/landing-page.
 import { LoginPageComponent } from '../shared/pages/login-page/login-page.component';
 import { HelloPageComponent } from '../shared/pages/hello-page/hello-page.component';
 import { MainMenuPageComponent } from '../shared/pages/main-menu-page/main-menu-page.component';
+import { OverviewPageComponent } from '../shared/pages/overview-page/overview-page.component';
+import { DurgsBasePageComponent } from '../shared/pages/durgs-base-page/durgs-base-page.component';
 //
 export const routes: Routes = [
   {
@@ -25,5 +27,15 @@ export const routes: Routes = [
     path: 'main-menu',
     component: MainMenuPageComponent,
     title: 'Choose resource',
+  },
+  {
+    path: 'overview',
+    component: OverviewPageComponent,
+    title: 'Overview',
+  },
+  {
+    path: 'drugs-base',
+    component: DurgsBasePageComponent,
+    title: 'Drugs base',
   },
 ];
