@@ -1,7 +1,22 @@
-<app-top-navbar section="Baza leków"></app-top-navbar>
-<div class="flex flex-col gap-5 p-5">
-  <label for=""> Wybierz nazwę substancji </label>
-  <select name="" id="" class="flex flex-col gap-5 p-5">
-    <option value="">Apap Extra</option>
-  </select>
-</div>
+<section class="flex flex-col items-center h-[100vh]">
+  <app-top-navbar section="Baza leków"></app-top-navbar>
+  <div class="flex flex-col gap-5 p-5 items-center justify-center">
+    <label for="" class="font-semibold drop-shadow-md text-xl">
+      Wybierz nazwę produktu
+    </label>
+    <select
+      name=""
+      id=""
+      class="flex flex-col gap-5 p-5 rounded-full border border-gray-300 font-semibold px-5 bg-transparent shadow-md"
+    >
+      <option value="" class="px-5 bg-white">Apap Extra</option>
+      <option value="" class="px-5 bg-white">Co-prestarium</option>
+    </select>
+    <button
+      class="font-semibold drop-shadow-md transition-all duration-300 hover:scale-105"
+    >
+      Załaduj dane
+    </button>
+  </div>
+  <app-product-cards-container></app-product-cards-container>
+</section>
