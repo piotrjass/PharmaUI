@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+// components
 import { TopNavbarComponent } from '../../../core/components/overview-cmps/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from '../../../core/components/overview-cmps/side-navbar/side-navbar.component';
 import { FormsContainerComponent } from '../../../core/components/overview-cmps/forms-container/forms-container.component';
@@ -6,7 +8,12 @@ import { FormsContainerComponent } from '../../../core/components/overview-cmps/
 @Component({
   selector: 'app-overview-page',
   standalone: true,
-  imports: [TopNavbarComponent, SideNavbarComponent, FormsContainerComponent],
+  imports: [
+    TopNavbarComponent,
+    SideNavbarComponent,
+    FormsContainerComponent,
+    RouterOutlet,
+  ],
   templateUrl: './overview-page.component.html',
   styleUrl: './overview-page.component.css',
 })

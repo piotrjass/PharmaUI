@@ -8,7 +8,11 @@
   </div>
   <ul class="flex flex-col gap-5 h-[70%]">
     @for (section of sections; track section) {
-    <app-side-navbar-item [name]="section.name"></app-side-navbar-item>
+    <app-side-navbar-item
+      [name]="section.name"
+      [routerLink]="section.route"
+    ></app-side-navbar-item>
+    <h1>{{ section.route }}</h1>
     }
   </ul>
   <button

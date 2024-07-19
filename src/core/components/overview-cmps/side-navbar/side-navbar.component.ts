@@ -13,11 +13,11 @@ export class SideNavbarComponent {
   sections: any[] = [
     {
       name: 'Dane pacjenta',
-      route: 'pacjent',
+      route: 'patients-data',
     },
     {
       name: 'Choroby',
-      route: '',
+      route: 'patient-diseases',
     },
     {
       name: 'Leki przewlekłe',
