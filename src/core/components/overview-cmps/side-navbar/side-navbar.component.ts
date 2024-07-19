@@ -20,11 +20,15 @@ export class SideNavbarComponent {
       route: '',
     },
     {
-      name: 'Suplementy',
+      name: 'Leki przewlekłe',
       route: '',
     },
     {
-      name: 'Leki',
+      name: 'Leki doraźne',
+      route: '',
+    },
+    {
+      name: 'Działanie niepożądane',
       route: '',
     },
     {
