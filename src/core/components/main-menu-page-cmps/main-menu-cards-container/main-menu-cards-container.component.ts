@@ -12,6 +12,8 @@ import {
   bootstrapChatLeftQuoteFill,
   bootstrapCapsulePill,
   bootstrapPenFill,
+  bootstrapPersonFillGear,
+  bootstrapExclamationTriangleFill,
 } from '@ng-icons/bootstrap-icons';
 
 @Component({
@@ -28,6 +30,8 @@ import {
       bootstrapChatLeftQuoteFill,
       bootstrapCapsulePill,
       bootstrapPenFill,
+      bootstrapExclamationTriangleFill,
+      bootstrapPersonFillGear,
     }),
   ],
 })
@@ -64,6 +68,18 @@ export class MainMenuCardsContainerComponent {
       title: 'Edukacja',
       icon: 'bootstrapPenFill',
       isActive: false,
+    },
+    {
+      title: 'Zgłoś błąd',
+      icon: 'bootstrapExclamationTriangleFill',
+      isActive: false,
+      route: '/report-error',
+    },
+    {
+      title: 'Panel moderacji',
+      icon: 'bootstrapPersonFillGear',
+      isActive: false,
+      route: '/moderator-page',
     },
   ];
 }

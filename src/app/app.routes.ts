@@ -12,6 +12,8 @@ import { ChronicDrugsComponent } from '../core/components/overview-cmps/chronic-
 import { OtcDrugsComponent } from '../core/components/overview-cmps/otc-drugs/otc-drugs.component';
 import { SideEffectsComponent } from '../core/components/overview-cmps/side-effects/side-effects.component';
 import { InteractionsComponent } from '../core/components/overview-cmps/interactions/interactions.component';
+import { ReportErrorPageComponent } from '../shared/pages/report-error-page/report-error-page.component';
+import { ModeratorPageComponent } from '../shared/pages/moderator-page/moderator-page.component';
 //
 export const routes: Routes = [
   {
@@ -79,5 +81,15 @@ export const routes: Routes = [
     path: 'drugs-base',
     component: DurgsBasePageComponent,
     title: 'Drugs base',
+  },
+  {
+    path: 'report-error',
+    component: ReportErrorPageComponent,
+    title: 'Report error',
+  },
+  {
+    path: 'moderator-page',
+    component: ModeratorPageComponent,
+    title: 'Moderator page',
   },
 ];

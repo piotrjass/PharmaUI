@@ -10,9 +10,9 @@
     @for (section of sections; track section) {
     <app-side-navbar-item
       [name]="section.name"
-      [routerLink]="section.route"
+      [route]="section.route"
     ></app-side-navbar-item>
-    <h1>{{ section.route }}</h1>
+
     }
   </ul>
   <button
