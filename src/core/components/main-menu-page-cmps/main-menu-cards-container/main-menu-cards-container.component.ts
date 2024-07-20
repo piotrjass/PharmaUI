@@ -72,7 +72,7 @@ export class MainMenuCardsContainerComponent {
     {
       title: 'Zgłoś błąd',
       icon: 'bootstrapExclamationTriangleFill',
-      isActive: false,
+      isActive: true,
       route: '/report-error',
     },
     {

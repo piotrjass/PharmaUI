@@ -14,6 +14,10 @@ import { SideEffectsComponent } from '../core/components/overview-cmps/side-effe
 import { InteractionsComponent } from '../core/components/overview-cmps/interactions/interactions.component';
 import { ReportErrorPageComponent } from '../shared/pages/report-error-page/report-error-page.component';
 import { ModeratorPageComponent } from '../shared/pages/moderator-page/moderator-page.component';
+import { DrugsOperationsComponent } from '../core/components/moderator-page-cmps/drugs-operations/drugs-operations.component';
+import { DiseasesOperationsComponent } from '../core/components/moderator-page-cmps/diseases-operations/diseases-operations.component';
+import { SideEffectsOperationsComponent } from '../core/components/moderator-page-cmps/side-effects-operations/side-effects-operations.component';
+import { ContraindicatiosnsOperationsComponent } from '../core/components/moderator-page-cmps/contraindicatiosns-operations/contraindicatiosns-operations.component';
 //
 export const routes: Routes = [
   {
@@ -91,5 +95,27 @@ export const routes: Routes = [
     path: 'moderator-page',
     component: ModeratorPageComponent,
     title: 'Moderator page',
+    children: [
+      {
+        path: 'drugs',
+        component: DrugsOperationsComponent,
+        title: 'Drugs operations',
+      },
+      {
+        path: 'diseases',
+        component: DiseasesOperationsComponent,
+        title: 'Diseases operations',
+      },
+      {
+        path: 'side-effects',
+        component: SideEffectsOperationsComponent,
+        title: 'Side effects operations',
+      },
+      {
+        path: 'contraindications',
+        component: ContraindicatiosnsOperationsComponent,
+        title: 'Contraindications',
+      },
+    ],
   },
 ];
