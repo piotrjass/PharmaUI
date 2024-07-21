@@ -1,45 +1,60 @@
 <section
-  class="rounded-md shadow-xl font-semibold text-lg text-center flex flex-col gap-5"
+  class="rounded-md shadow-xl font-semibold text-lg text-center flex flex-col gap-10 p-5"
 >
   <div class="flex flex-col gap-5 p-5">
-    <label class="transition-all duration-300 font-semibold">
+    <label class="transition-all duration-300 font-semibold text-xl">
       {{ list_title }}
     </label>
 
-    <select name="" id="" class="text-center p-1 rounded-md bg-white">
+    <select
+      name=""
+      id=""
+      class="text-center text-sm text-gray-500 p-1 rounded-md bg-white"
+    >
       @for (item of items; track $index) {
       <option value="item">{{ item }}</option>
       }
     </select>
   </div>
-  <div class="border border-gray-500 w-[70%] mx-auto rounded-full"></div>
   <form
+    (submit)="onAddItem(addInput.value)"
     action=""
     class="flex flex-col gap-5 p-5 items-center justify-center min-w-[40vw] min-h-[20vh]"
   >
     <label for="">{{ add_title }} </label>
     <input
-      class="shadow-md border border-gray-200 rounded-xl"
+      #addInput
+      class="shadow-md border border-gray-200 text-gray-500 text-md p-1 font-normal rounded-xl"
       type="text"
       name=""
       id=""
     />
-    <button class="transition-all duration-300 hover:text-gray-500">
+    <button
+      type="submit"
+      class="transition-all duration-300 border-2 border-black rounded-full round px-3 py-1 hover:shadow-lg"
+    >
       Dodaj do bazy
     </button>
   </form>
-  <div class="border border-gray-500 w-[70%] mx-auto rounded-full"></div>
+
   <div class="p-5 gap-5 flex flex-col items-center justify-center">
-    <input
-      class="shadow-md border border-gray-200 rounded-xl w-[50%]"
-      type="text"
-      name=""
-      id=""
-    />
     <label
       class="transition-all duration-300 hover:text-gray-500 font-semibold"
     >
       {{ delete_title }}
     </label>
+    <input
+      #deleteInput
+      class="shadow-md border border-gray-200 rounded-xl w-[50%]"
+      type="text"
+      name=""
+      id=""
+    />
+    <button
+      class="transition-all duration-300 border-2 border-black rounded-full round px-3 py-1 hover:shadow-lg"
+      (click)="onDeleteItem(deleteInput.value)"
+    >
+      Usuń z bazy
+    </button>
   </div>
 </section>
