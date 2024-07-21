@@ -17,7 +17,7 @@ import { ModeratorPageComponent } from '../shared/pages/moderator-page/moderator
 import { DrugsOperationsComponent } from '../core/components/moderator-page-cmps/drugs-operations/drugs-operations.component';
 import { DiseasesOperationsComponent } from '../core/components/moderator-page-cmps/diseases-operations/diseases-operations.component';
 import { SideEffectsOperationsComponent } from '../core/components/moderator-page-cmps/side-effects-operations/side-effects-operations.component';
-import { ContraindicatiosnsOperationsComponent } from '../core/components/moderator-page-cmps/contraindicatiosns-operations/contraindicatiosns-operations.component';
+import { ContraindicatiosnsOperationsComponent } from '../core/components/moderator-page-cmps/contraindications-operations/contraindications-operations.component';
 //
 export const routes: Routes = [
   {

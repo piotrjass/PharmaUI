@@ -5,9 +5,12 @@ import { CrudOperationsComponent } from '../crud-operations/crud-operations.comp
   selector: 'app-contraindicatiosns-operations',
   standalone: true,
   imports: [CrudOperationsComponent],
-  templateUrl: './contraindicatiosns-operations.component.html',
-  styleUrl: './contraindicatiosns-operations.component.css',
+  templateUrl: './contraindications-operations.component.html',
+  styleUrl: './contraindications-operations.component.css',
 })
 export class ContraindicatiosnsOperationsComponent {
   Przeciwwskazania: string[] = ['Nadciśnienie', 'Niedoczynność nerek'];
+  handleAddItem(item: string) {
+    console.log('Added item:', item);
+  }
 }

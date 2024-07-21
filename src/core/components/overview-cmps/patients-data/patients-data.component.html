@@ -1,1 +1,42 @@
-<p>patients-data works!</p>
+<form
+  action=""
+  class="flex flex-col gap-5 p-5 font-semibold text-xl text-center"
+>
+  <label for="">Imię</label>
+  <input
+    class="border border-gray-300 text-md font-normal rounded-xl p-1"
+    type="text"
+    name=""
+    id=""
+  />
+  <label for="">Nazwisko</label>
+  <input
+    type="text"
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-1"
+  />
+  <label for="">Wiek</label>
+  <input
+    type="number"
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-1"
+  />
+  <label for="">Płeć</label>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-2 bg-white"
+  >
+    <option value="Męska">Męska</option>
+    <option value="Żeńska">Żeńska</option>
+    <option value="Nie podawać">Nie podawać</option>
+  </select>
+</form>
+<nav>
+  <app-overview-nav
+    back_router_link="/main-menu"
+    next_router_link="/overview/patient-diseases"
+  ></app-overview-nav>
+</nav>

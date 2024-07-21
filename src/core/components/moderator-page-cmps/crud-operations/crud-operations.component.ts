@@ -19,7 +19,5 @@ export class CrudOperationsComponent {
   onAddItem(item: string) {
     this.addItem.emit(item);
   }
-  onDeleteItem(item: string) {
-    this.deleteItem.emit(item);
-  }
+  onDeleteItem() {}
 }

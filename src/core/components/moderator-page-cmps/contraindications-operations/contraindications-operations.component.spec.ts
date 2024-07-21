@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContraindicatiosnsOperationsComponent } from './contraindicatiosns-operations.component';
+import { ContraindicatiosnsOperationsComponent } from './contraindications-operations.component';
 
 describe('ContraindicatiosnsOperationsComponent', () => {
   let component: ContraindicatiosnsOperationsComponent;
@@ -8,10 +8,9 @@ describe('ContraindicatiosnsOperationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContraindicatiosnsOperationsComponent]
-    })
-    .compileComponents();
-    
+      imports: [ContraindicatiosnsOperationsComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ContraindicatiosnsOperationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

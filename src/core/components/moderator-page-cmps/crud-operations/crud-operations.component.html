@@ -1,5 +1,5 @@
 <section
-  class="rounded-md shadow-xl font-semibold text-lg text-center flex flex-col gap-10 p-5"
+  class="rounded-md font-semibold text-lg text-center flex flex-col gap-10 p-5"
 >
   <div class="flex flex-col gap-5 p-5">
     <label class="transition-all duration-300 font-semibold text-xl">
@@ -17,7 +17,6 @@
     </select>
   </div>
   <form
-    (submit)="onAddItem(addInput.value)"
     action=""
     class="flex flex-col gap-5 p-5 items-center justify-center min-w-[40vw] min-h-[20vh]"
   >
@@ -30,7 +29,7 @@
       id=""
     />
     <button
-      type="submit"
+      type="button"
       class="transition-all duration-300 border-2 border-black rounded-full round px-3 py-1 hover:shadow-lg"
     >
       Dodaj do bazy
@@ -52,7 +51,6 @@
     />
     <button
       class="transition-all duration-300 border-2 border-black rounded-full round px-3 py-1 hover:shadow-lg"
-      (click)="onDeleteItem(deleteInput.value)"
     >
       Usuń z bazy
     </button>
