@@ -2,6 +2,8 @@
   <app-top-navbar section="Moderator panel"></app-top-navbar>
   <div class="h-full flex">
     <app-side-navbar [sections]="sections"></app-side-navbar>
-    <div><router-outlet></router-outlet></div>
+    <div class="w-full flex items-center justify-center">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </section>

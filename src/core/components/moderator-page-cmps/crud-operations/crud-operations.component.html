@@ -1,0 +1,45 @@
+<section
+  class="rounded-md shadow-xl font-semibold text-lg text-center flex flex-col gap-5"
+>
+  <div class="flex flex-col gap-5 p-5">
+    <label class="transition-all duration-300 font-semibold">
+      {{ list_title }}
+    </label>
+
+    <select name="" id="" class="text-center p-1 rounded-md bg-white">
+      @for (item of items; track $index) {
+      <option value="item">{{ item }}</option>
+      }
+    </select>
+  </div>
+  <div class="border border-gray-500 w-[70%] mx-auto rounded-full"></div>
+  <form
+    action=""
+    class="flex flex-col gap-5 p-5 items-center justify-center min-w-[40vw] min-h-[20vh]"
+  >
+    <label for="">{{ add_title }} </label>
+    <input
+      class="shadow-md border border-gray-200 rounded-xl"
+      type="text"
+      name=""
+      id=""
+    />
+    <button class="transition-all duration-300 hover:text-gray-500">
+      Dodaj do bazy
+    </button>
+  </form>
+  <div class="border border-gray-500 w-[70%] mx-auto rounded-full"></div>
+  <div class="p-5 gap-5 flex flex-col items-center justify-center">
+    <input
+      class="shadow-md border border-gray-200 rounded-xl w-[50%]"
+      type="text"
+      name=""
+      id=""
+    />
+    <label
+      class="transition-all duration-300 hover:text-gray-500 font-semibold"
+    >
+      {{ delete_title }}
+    </label>
+  </div>
+</section>

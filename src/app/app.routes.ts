@@ -5,7 +5,7 @@ import { LoginPageComponent } from '../shared/pages/login-page/login-page.compon
 import { HelloPageComponent } from '../shared/pages/hello-page/hello-page.component';
 import { MainMenuPageComponent } from '../shared/pages/main-menu-page/main-menu-page.component';
 import { OverviewPageComponent } from '../shared/pages/overview-page/overview-page.component';
-import { DurgsBasePageComponent } from '../shared/pages/durgs-base-page/durgs-base-page.component';
+import { DurgsBasePageComponent } from '../shared/pages/drugs-base-page/durgs-base-page.component';
 import { PatientsDataComponent } from '../core/components/overview-cmps/patients-data/patients-data.component';
 import { DiseasesDataComponent } from '../core/components/overview-cmps/diseases-data/diseases-data.component';
 import { ChronicDrugsComponent } from '../core/components/overview-cmps/chronic-drugs/chronic-drugs.component';

@@ -78,7 +78,7 @@ export class MainMenuCardsContainerComponent {
     {
       title: 'Panel moderacji',
       icon: 'bootstrapPersonFillGear',
-      isActive: false,
+      isActive: true,
       route: '/moderator-page',
     },
   ];
