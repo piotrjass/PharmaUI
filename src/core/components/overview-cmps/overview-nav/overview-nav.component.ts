@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { bootstrapArrowRightCircleFill } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapArrowRightCircleFill,
+  bootstrapArrowLeftCircleFill,
+} from '@ng-icons/bootstrap-icons';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +12,12 @@ import { RouterLink, Router, ActivatedRoute } from '@angular/router';
   imports: [NgIconComponent, RouterLink],
   templateUrl: './overview-nav.component.html',
   styleUrl: './overview-nav.component.css',
-  viewProviders: [provideIcons({ bootstrapArrowRightCircleFill })],
+  viewProviders: [
+    provideIcons({
+      bootstrapArrowRightCircleFill,
+      bootstrapArrowLeftCircleFill,
+    }),
+  ],
 })
 export class OverviewNavComponent {
   constructor(

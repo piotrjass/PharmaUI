@@ -1,4 +1,28 @@
-<p>diseases-data works!</p>
+<section class="">
+  <form action="" class="flex flex-col gap-10 p-5">
+    <label for="" class="text-center font-semibold text-xl"
+      >Zadeklarowane choroby
+    </label>
+    <div class="flex items-center justify-center gap-3">
+      <select name="" id="" class="p-3 bg-white">
+        @for(disease of diseases; track diseases){
+        <option [value]="disease" class="px-3 py-2 bg-white">
+          {{ disease }}
+        </option>
+        }
+      </select>
+      <ng-icon
+        class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
+        name="bootstrapPlusLg"
+      ></ng-icon>
+    </div>
+  </form>
+  <div class="flex flex-col gap-5 mt-10">
+    @for(disease of diseases; track diseases){
+    <app-single-disease [name]="disease"></app-single-disease>
+    }
+  </div>
+</section>
 <app-overview-nav
   back_router_link="/overview/patient-data"
   next_router_link="/overview/chronic-drugs"
