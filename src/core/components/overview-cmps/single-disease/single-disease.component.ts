@@ -14,4 +14,5 @@ import {
 })
 export class SingleDiseaseComponent {
   @Input() name: string = 'Drug name';
+  @Input() index: number = 0;
 }

@@ -41,7 +41,7 @@ export class MainMenuCardsContainerComponent {
       title: 'Przegląd lekowy',
       icon: 'bootstrapFileSpreadsheet',
       isActive: true,
-      route: '/overview',
+      route: '/overview/patient-data',
     },
     {
       title: 'Archiwum',

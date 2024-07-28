@@ -2,8 +2,18 @@
   <app-top-navbar></app-top-navbar>
   <div class="h-full flex">
     <app-side-navbar class="w-[10%]"></app-side-navbar>
-    <div class="w-full flex items-center justify-center">
-      <router-outlet></router-outlet>
+    <div class="w-full flex flex-col relative">
+      <p class="p-5 font-semibold text-2xl drop-shadow-md">
+        {{ sectionTitle }}
+      </p>
+      <div class="flex items-center justify-center">
+        <router-outlet></router-outlet>
+      </div>
+      <app-overview-nav
+        class="absolute bottom-0 ml-[43%]"
+        [back_router_link]="back_router_link"
+        [next_router_link]="next_router_link"
+      ></app-overview-nav>
     </div>
   </div>
 </section>

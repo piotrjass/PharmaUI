@@ -1,11 +1,15 @@
-<section class="">
+<section>
   <form action="" class="flex flex-col gap-10 p-5">
     <label for="" class="text-center font-semibold text-xl"
       >Zadeklarowane choroby
     </label>
     <div class="flex items-center justify-center gap-3">
-      <select name="" id="" class="p-3 bg-white">
-        @for(disease of diseases; track diseases){
+      <select
+        name=""
+        id=""
+        class="py-3 px-5 bg-white border-2 border-gray-200 shadow-md font-semibold rounded-full"
+      >
+        @for(disease of diseases; track diseases; ){
         <option [value]="disease" class="px-3 py-2 bg-white">
           {{ disease }}
         </option>
@@ -18,13 +22,13 @@
     </div>
   </form>
   <div class="flex flex-col gap-5 mt-10">
-    @for(disease of diseases; track diseases){
-    <app-single-disease [name]="disease"></app-single-disease>
+    @for(disease of diseases; track diseases; let i = $index){
+    <app-single-disease [index]="i + 1" [name]="disease"></app-single-disease>
     }
   </div>
 </section>
-////
-<app-overview-nav
+
+<!-- <app-overview-nav
   back_router_link="/overview/patient-data"
   next_router_link="/overview/chronic-drugs"
-></app-overview-nav>
+></app-overview-nav> -->

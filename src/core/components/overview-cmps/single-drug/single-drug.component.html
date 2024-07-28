@@ -1,0 +1,12 @@
+<div class="flex flex-col p-2">
+  <p class="font-semibold text-xl drop-shadow-md flex gap-2">
+    {{ index }}.
+    {{ name }}
+  </p>
+  @for (substance of substances; track $index) {
+  <div class="flex gap-2">
+    <p class="text-gray-500 italic">{{ substance.substance }}</p>
+    <p class="text-gray-500 italic">{{ substance.dosage }}mg</p>
+  </div>
+  }
+</div>

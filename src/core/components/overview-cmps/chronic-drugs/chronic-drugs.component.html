@@ -1,5 +1,36 @@
-<p>chronic-drugs works!</p>
-<app-overview-nav
+<form action="" class="flex flex-col gap-10 p-5">
+  <label for="" class="text-center font-semibold text-xl"
+    >Zadeklarowane choroby
+  </label>
+  <div class="flex items-center justify-center gap-3">
+    <select
+      name=""
+      id=""
+      class="py-3 px-5 bg-white border-2 border-gray-200 shadow-md font-semibold rounded-full"
+    >
+      @for(drug of drugs; track drugs; ){
+      <option [value]="drug.name" class="px-3 py-2 bg-white">
+        {{ drug.name }}
+      </option>
+      }
+    </select>
+    <ng-icon
+      class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
+      name="bootstrapPlusLg"
+    ></ng-icon>
+  </div>
+</form>
+<div>
+  @for (drug of drugs; track drugs; let i = $index) {
+  <app-single-drug
+    [index]="i + 1"
+    [name]="drug.name"
+    [substances]="drug.substances"
+  ></app-single-drug>
+  }
+</div>
+
+<!-- <app-overview-nav
   back_router_link="/overview/patient-diseases"
   next_router_link="/overview/otc-drugs"
-></app-overview-nav>
+></app-overview-nav> -->
