@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   bootstrapArrowRightCircleFill,
@@ -27,4 +27,13 @@ export class OverviewNavComponent {
 
   @Input() back_router_link: string = '';
   @Input() next_router_link: string = '';
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'ArrowLeft') {
+      this.router.navigate([this.back_router_link]);
+    } else if (event.key === 'ArrowRight') {
+      this.router.navigate([this.next_router_link]);
+    }
+  }
 }
