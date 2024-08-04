@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TopNavbarComponent {
   @Input() section: string = '';
+  @Input() additional_text: string = '';
 }

@@ -9,7 +9,7 @@
     <select
       name=""
       id=""
-      class="text-center text-sm text-gray-500 p-1 rounded-md bg-white"
+      class="text-center text-sm text-gray-500 p-3 max-w-fit mx-auto rounded-md bg-white"
     >
       @for (item of items; track $index) {
       <option value="item">{{ item }}</option>
@@ -23,7 +23,7 @@
     <label for="">{{ add_title }} </label>
     <input
       #addInput
-      class="shadow-md border border-gray-200 text-gray-500 text-md p-1 font-normal rounded-xl"
+      class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
       type="text"
       name=""
       id=""
@@ -36,15 +36,15 @@
     </button>
   </form>
 
-  <div class="p-5 gap-5 flex flex-col items-center justify-center">
+  <div class="p-3 gap-5 flex flex-col items-center justify-center">
     <label
-      class="transition-all duration-300 hover:text-gray-500 font-semibold"
+      class="transition-all duration-300 hover:text-gray-500 font-semibold p-5"
     >
       {{ delete_title }}
     </label>
     <input
       #deleteInput
-      class="shadow-md border border-gray-200 rounded-xl w-[50%]"
+      class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
       type="text"
       name=""
       id=""

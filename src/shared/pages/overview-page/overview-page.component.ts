@@ -8,8 +8,10 @@ import {
 // components
 import { TopNavbarComponent } from '../../../core/components/overview-cmps/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from '../../../core/components/overview-cmps/side-navbar/side-navbar.component';
+// import { TopNavbarComponent } from '../../component/top-navbar/top-navbar.component';
+// import { SideNavbarComponent } from '../../component/side-navbar/side-navbar.component';
 import { OverviewNavComponent } from '../../../core/components/overview-cmps/overview-nav/overview-nav.component';
-import { filter, map, mergeMap } from 'rxjs';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-overview-page',

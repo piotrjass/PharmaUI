@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-crud-operations',
   standalone: true,
-  imports: [],
+  imports: [CrudOperationsComponent],
   templateUrl: './crud-operations.component.html',
   styleUrl: './crud-operations.component.css',
 })
