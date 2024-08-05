@@ -15,5 +15,6 @@ import { AddSubstanceFormComponent } from '../add-substance-form/add-substance-f
   styleUrl: './drugs-operations.component.css',
 })
 export class DrugsOperationsComponent {
-  leki: string[] = ['Apap extra', 'Infex zatoki'];
+  //
+  leki: string[] = ['Apap extra', 'Infex zatoki', 'Co-prestarium'];
 }
