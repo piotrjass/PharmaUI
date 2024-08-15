@@ -79,7 +79,7 @@ export class MainMenuCardsContainerComponent {
       title: 'Panel moderacji',
       icon: 'bootstrapPersonFillGear',
       isActive: true,
-      route: '/moderator-page',
+      route: '/moderator-page/diseases',
     },
   ];
 }

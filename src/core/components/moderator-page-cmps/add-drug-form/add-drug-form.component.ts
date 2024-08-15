@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './add-drug-form.component.html',
-  styleUrl: './add-drug-form.component.css'
+  styleUrl: './add-drug-form.component.css',
 })
 export class AddDrugFormComponent {
-
+  substances: string[] = ['Paracetamolum', 'Acidum walproicum'];
 }

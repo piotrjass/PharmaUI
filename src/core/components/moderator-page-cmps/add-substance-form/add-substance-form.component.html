@@ -1,6 +1,6 @@
 <form
   action=""
-  class="flex flex-col items-center justify-center p-5 gap-5 border-2 border-black"
+  class="flex flex-col items-center justify-center p-5 gap-5 border border-gray-300 rounded-md shadow-sm"
 >
   <p for="" class="text-lg font-semibold">Dodaj substancję chemiczną</p>
   <label for="">Nazwa substancji</label>
@@ -28,9 +28,30 @@
     class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
   />
   <label for="">Działanie niepożądane</label>
-  <select name="" id="">
-    <option value=""></option>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-2 bg-white"
+  >
+    @for( contraindication of contraindications; track contraindication ){
+    <option [value]="contraindication">{{ contraindication }}</option>
+    }
   </select>
   <label for="">Przeciwwskazania</label>
-  <button>Dodaj do bazy</button>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-2 bg-white"
+  >
+    @for( side_effect of side_effects; track side_effect ){
+    <option [value]="side_effect" class="bg-white rounded-2xl">
+      {{ side_effect }}
+    </option>
+    }
+  </select>
+  <button
+    class="border-2 border-black text-md font-semibold transition-all duration-300 hover:shadow-md rounded-3xl px-3 py-2"
+  >
+    Dodaj do bazy
+  </button>
 </form>

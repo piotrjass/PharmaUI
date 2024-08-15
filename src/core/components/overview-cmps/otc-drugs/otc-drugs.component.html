@@ -1,4 +1,35 @@
-<p>otc-drugs works!</p>
+<form action="" class="flex flex-col gap-10 p-5">
+  <label for="" class="text-center font-semibold text-xl"
+    >Leki stosowane doraźnie- preparaty OTC
+  </label>
+  <div class="flex items-center justify-center gap-3">
+    <select
+      name=""
+      id=""
+      class="border border-gray-300 bg-white text-md font-normal rounded-xl px-3 py-2"
+    >
+      @for(drug of drugs; track drugs; ){
+      <option [value]="drug.name" class="px-3 py-2 bg-white">
+        {{ drug.name }}
+      </option>
+      }
+    </select>
+    <ng-icon
+      class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
+      name="bootstrapPlusLg"
+    ></ng-icon>
+  </div>
+</form>
+<div>
+  @for (drug of drugs; track drugs; let i = $index) {
+  <app-single-drug
+    [index]="i + 1"
+    [name]="drug.name"
+    [substances]="drug.substances"
+  ></app-single-drug>
+  }
+</div>
+<!-- <p>otc-drugs works!</p> -->
 <!-- <app-overview-nav
   back_router_link="/overview/chronic-drugs"
   next_router_link="/overview/side-effects"

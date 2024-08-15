@@ -1,8 +1,8 @@
 <form
   action=""
-  class="flex flex-col gap-5 p-5 border-2 border-black m-2 items-center justify-center"
+  class="flex flex-col gap-5 p-5 border border-gray-300 rounded-md shadow-sm m-2 items-center justify-center"
 >
-  <p>Dodaj nowy lek</p>
+  <p class="text-lg font-semibold">Dodaj nowy lek</p>
   <label for="">Nazwa handlowa</label>
   <input
     type="text"
@@ -11,9 +11,23 @@
     class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
   />
   <label for="">Lista składników</label>
-  <select name="" id="">
-    <option></option>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-xl p-2 bg-white"
+  >
+    @for(substance of substances; track substance){
+    <option [value]="substance">{{ substance }}</option>
+    }
   </select>
-  <button>Dodaj składnik produktu</button>
-  <button>Dodaj lek do bazy</button>
+  <button
+    class="border-2 border-black text-md font-semibold transition-all duration-300 hover:shadow-md rounded-3xl px-3 py-2"
+  >
+    Dodaj składnik produktu
+  </button>
+  <button
+    class="border-2 border-black text-md font-semibold transition-all duration-300 hover:shadow-md rounded-3xl px-3 py-2"
+  >
+    Dodaj lek do bazy
+  </button>
 </form>

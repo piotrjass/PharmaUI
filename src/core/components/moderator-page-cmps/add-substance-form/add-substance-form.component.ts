@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './add-substance-form.component.html',
-  styleUrl: './add-substance-form.component.css'
+  styleUrl: './add-substance-form.component.css',
 })
 export class AddSubstanceFormComponent {
-
+  contraindications: string[] = ['Nadciśnienie', 'Cukrzyca'];
+  side_effects: string[] = ['Wymioty', 'Ból głowy'];
 }
