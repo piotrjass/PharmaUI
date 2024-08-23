@@ -1,5 +1,32 @@
-<p>side-effects works!</p>
-<!-- <app-overview-nav
-  back_router_link="/overview/otc-drugs"
-  next_router_link="/overview/interactions"
-></app-overview-nav> -->
+<form action="" class="flex flex-col gap-10 p-5">
+  <label for="" class="text-center font-semibold text-xl"
+    >Zgłaszane działania niepożądane
+  </label>
+  <div class="flex items-center justify-center gap-3">
+    <select
+      name=""
+      id=""
+      class="border border-gray-300 bg-white text-md font-normal rounded-xl px-3 py-2"
+    >
+      @for(side_effect of side_effects; track side_effect; ){
+      <option [value]="side_effect" class="px-3 py-2 bg-white">
+        {{ side_effect }}
+      </option>
+      }
+    </select>
+    <ng-icon
+      class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
+      name="bootstrapPlusLg"
+    ></ng-icon>
+  </div>
+  <div>
+    <div>
+      @for(side_effect of side_effects; track side_effect; let i = $index ){
+      <app-base-list-item
+        [index]="i + 1"
+        [name]="side_effect"
+      ></app-base-list-item>
+      }
+    </div>
+  </div>
+</form>

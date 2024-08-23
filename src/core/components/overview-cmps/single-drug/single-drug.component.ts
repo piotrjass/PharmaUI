@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 export class SingleDrugComponent {
   @Input() name: string = '';
   @Input() index: number = 0;
-  @Input() substances: any[] = [
+  @Input() substances?: any[] = [
     {
       substance: '',
       dosage: 0,
