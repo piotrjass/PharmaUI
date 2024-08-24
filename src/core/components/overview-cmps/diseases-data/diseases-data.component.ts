@@ -3,6 +3,10 @@ import { OverviewNavComponent } from '../overview-nav/overview-nav.component';
 import { SingleDiseaseComponent } from '../single-disease/single-disease.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { bootstrapPlusLg } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapPatchMinusFill,
+  bootstrapPatchPlusFill,
+} from '@ng-icons/bootstrap-icons';
 @Component({
   selector: 'app-diseases-data',
   standalone: true,
@@ -12,6 +16,8 @@ import { bootstrapPlusLg } from '@ng-icons/bootstrap-icons';
   viewProviders: [
     provideIcons({
       bootstrapPlusLg,
+      bootstrapPatchPlusFill,
+      bootstrapPatchMinusFill,
     }),
   ],
 })

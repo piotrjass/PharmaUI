@@ -37,6 +37,8 @@ export class OverviewPageComponent implements OnInit {
     'otc-drugs',
     'side-effects',
     'interactions',
+    'recommendations',
+    'summary',
   ];
 
   currentRouteIndex = 0;
@@ -99,6 +101,10 @@ export class OverviewPageComponent implements OnInit {
         return 'Skutki uboczne';
       case 'interactions':
         return 'Interakcje';
+      case 'recommendations':
+        return 'Rekomendacje';
+      case 'summary':
+        return 'Podsumowanie';
       default:
         return 'Nieznana sekcja';
     }

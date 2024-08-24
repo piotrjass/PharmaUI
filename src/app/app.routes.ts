@@ -18,6 +18,8 @@ import { DrugsOperationsComponent } from '../core/components/moderator-page-cmps
 import { DiseasesOperationsComponent } from '../core/components/moderator-page-cmps/diseases-operations/diseases-operations.component';
 import { SideEffectsOperationsComponent } from '../core/components/moderator-page-cmps/side-effects-operations/side-effects-operations.component';
 import { ContraindicatiosnsOperationsComponent } from '../core/components/moderator-page-cmps/contraindications-operations/contraindications-operations.component';
+import { OverviewRecommendationsComponent } from '../core/components/overview-cmps/overview-recommendations/overview-recommendations.component';
+import { OverviewSummaryComponent } from '../core/components/overview-cmps/overview-summary/overview-summary.component';
 //
 export const routes: Routes = [
   {
@@ -78,6 +80,16 @@ export const routes: Routes = [
         path: 'interactions',
         component: InteractionsComponent,
         title: 'Interactions',
+      },
+      {
+        path: 'recommendations',
+        component: OverviewRecommendationsComponent,
+        title: 'Recommendations',
+      },
+      {
+        path: 'summary',
+        component: OverviewSummaryComponent,
+        title: 'Summary',
       },
     ],
   },

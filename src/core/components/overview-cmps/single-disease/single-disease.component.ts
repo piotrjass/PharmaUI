@@ -4,13 +4,24 @@ import {
   bootstrapXCircle,
   bootstrapXCircleFill,
 } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapPatchMinusFill,
+  bootstrapPatchPlusFill,
+} from '@ng-icons/bootstrap-icons';
 @Component({
   selector: 'app-single-disease',
   standalone: true,
   imports: [NgIconComponent],
   templateUrl: './single-disease.component.html',
   styleUrl: './single-disease.component.css',
-  viewProviders: [provideIcons({ bootstrapXCircle, bootstrapXCircleFill })],
+  viewProviders: [
+    provideIcons({
+      bootstrapXCircle,
+      bootstrapXCircleFill,
+      bootstrapPatchMinusFill,
+      bootstrapPatchPlusFill,
+    }),
+  ],
 })
 export class SingleDiseaseComponent {
   @Input() name: string = 'Drug name';

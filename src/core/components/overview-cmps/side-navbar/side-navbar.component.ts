@@ -35,5 +35,13 @@ export class SideNavbarComponent {
       name: 'Interakcje',
       route: 'interactions',
     },
+    {
+      name: 'Zalecenia',
+      route: 'recommendations',
+    },
+    {
+      name: 'Podsumowanie',
+      route: 'summary',
+    },
   ];
 }
