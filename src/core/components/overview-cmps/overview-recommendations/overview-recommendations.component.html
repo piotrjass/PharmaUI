@@ -1,1 +1,8 @@
-<p>overview-recommendations works!</p>
+<p class="font-semibold my-10">
+  Zalecenia dotycząca suplementacji, badań laboratoryjnych, pozostałe wskazania
+</p>
+@for(recommendation of recommendations; track recommendation; let i = $index ){
+<app-base-list-item [name]="recommendation" [index]="i + 1">
+</app-base-list-item>
+}
+<app-add-data-form></app-add-data-form>

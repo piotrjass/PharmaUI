@@ -7,10 +7,16 @@ import {
   bootstrapPatchMinusFill,
   bootstrapPatchPlusFill,
 } from '@ng-icons/bootstrap-icons';
+import { AddDataFormComponent } from '../add-data-form/add-data-form.component';
 @Component({
   selector: 'app-diseases-data',
   standalone: true,
-  imports: [OverviewNavComponent, SingleDiseaseComponent, NgIconComponent],
+  imports: [
+    OverviewNavComponent,
+    SingleDiseaseComponent,
+    NgIconComponent,
+    AddDataFormComponent,
+  ],
   templateUrl: './diseases-data.component.html',
   styleUrl: './diseases-data.component.css',
   viewProviders: [
