@@ -1,4 +1,4 @@
-<form
+<!-- <form
   action=""
   class="flex flex-col gap-5 p-5 font-semibold text-xl text-center"
 >
@@ -33,4 +33,23 @@
     <option value="Żeńska">Żeńska</option>
     <option value="Nie podawać">Nie podawać</option>
   </select>
-</form>
+</form> -->
+
+<ng-container *ngIf="formState$ | async as formState">
+  <form novalidate [ngrxFormState]="formState">
+    <input
+      type="text"
+      [ngrxFormControlState]="formState.controls.someTextInput"
+    />
+
+    <input
+      type="checkbox"
+      [ngrxFormControlState]="formState.controls.someCheckbox"
+    />
+
+    <input
+      type="number"
+      [ngrxFormControlState]="formState.controls.nested.controls.someNumber"
+    />
+  </form>
+</ng-container>
