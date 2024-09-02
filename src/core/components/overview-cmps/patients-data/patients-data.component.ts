@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OverviewNavComponent } from '../overview-nav/overview-nav.component';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 // store
-import { Store, StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { FormGroupState, NgrxFormsModule, setValue } from 'ngrx-forms';
 // icons
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -14,7 +14,9 @@ import { Observable } from 'rxjs';
 import {
   PatientDataState,
   PatientFormValue,
+  selectAppName,
 } from '../../../../store/patient-store/patients.reducer';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-patients-data',
@@ -24,7 +26,7 @@ import {
     OverviewNavComponent,
     RouterLink,
     NgrxFormsModule,
-    StoreModule,
+    CommonModule,
   ],
   templateUrl: './patients-data.component.html',
   styleUrl: './patients-data.component.css',
@@ -36,17 +38,20 @@ import {
   ],
 })
 export class PatientsDataComponent {
+  app_name: string = '';
   formState$: Observable<FormGroupState<PatientFormValue>>;
-
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private store: Store<PatientDataState>,
-  ) {
-    this.formState$ = store.select((s) => s.myForm);
+  constructor(patientStore: Store<PatientDataState>) {
+    this.formState$ = patientStore.select((s) => s.myForm);
+    patientStore.select(selectAppName).subscribe((name) => {
+      this.app_name = name;
+      alert('stop!');
+      console.log(this.app_name);
+    });
   }
 
-  // updateFormValue(newValue: PatientFormValue) {
-  //   this.store.dispatch(setValue({ value: newValue }));
-  // }
+  ngOnInit() {
+    console.log('on init sie wykonuje!');
+    console.log(this.app_name);
+    this.formState$.subscribe((el) => console.log(el));
+  }
 }

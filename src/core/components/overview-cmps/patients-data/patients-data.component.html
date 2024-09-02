@@ -34,22 +34,22 @@
     <option value="Nie podawać">Nie podawać</option>
   </select>
 </form> -->
-
+<h1>Data starts!</h1>
 <ng-container *ngIf="formState$ | async as formState">
-  <form novalidate [ngrxFormState]="formState">
+  <form novalidate [ngrxFormState]="formState" class="bg-red-100">
     <input
       type="text"
-      [ngrxFormControlState]="formState.controls.someTextInput"
+      [ngrxFormControlState]="formState.controls.name"
+      class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
     />
-
     <input
-      type="checkbox"
-      [ngrxFormControlState]="formState.controls.someCheckbox"
+      type="text"
+      placeholder="last_name"
+      [ngrxFormControlState]="formState.controls.last_name"
+      class="border border-gray-300 text-md font-normal rounded-xl px-3 py-2"
     />
-
-    <input
-      type="number"
-      [ngrxFormControlState]="formState.controls.nested.controls.someNumber"
-    />
+    <input type="number" [ngrxFormControlState]="formState.controls.age" />
+    <input type="number" [ngrxFormControlState]="formState.controls.gender" />
   </form>
 </ng-container>
+<h1>Data ends!</h1>

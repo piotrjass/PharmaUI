@@ -1,4 +1,9 @@
-import { Action, createReducer } from '@ngrx/store';
+import {
+  Action,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+} from '@ngrx/store';
 import {
   FormGroupState,
   createFormGroupState,
@@ -7,14 +12,14 @@ import {
 } from 'ngrx-forms';
 import { Gender } from '../../core/enums/gender_enum';
 
-// 1. Definicja modelu danych formularza
+// 1. Definition for form state
 export interface PatientFormValue {
   name: string;
   last_name: string;
   age: number;
   gender: Gender;
 }
-// 2. Początkowy stan formularza
+// 2. Initiall form state
 const FORM_ID = 'PatientFormValue';
 const initialFormState = createFormGroupState<PatientFormValue>(FORM_ID, {
   name: '',
@@ -23,19 +28,28 @@ const initialFormState = createFormGroupState<PatientFormValue>(FORM_ID, {
   gender: Gender.nie_podawać,
 });
 
-// 3. Definicja stanu aplikacji
+// 3. Definitions for app state
 export interface PatientDataState {
-  someOtherField: string;
+  app_name: string;
   myForm: FormGroupState<PatientFormValue>;
 }
 
 const initialState: PatientDataState = {
-  someOtherField: '',
+  app_name: 'PatientsApp',
   myForm: initialFormState,
 };
 
-// 4. Reducer zwiazany a formularzem
-export function patientFormReducer(
+// selectors
+export const selectPatientDataState =
+  createFeatureSelector<PatientDataState>('patientData');
+export const selectAppName = createSelector(
+  selectPatientDataState,
+  (state: PatientDataState) => state.app_name,
+);
+
+// reducers for form
+
+export function appReducer(
   state = initialState,
   action: Action,
 ): PatientDataState {
@@ -52,6 +66,5 @@ export function patientFormReducer(
   }
 }
 
-export function reducer(state: PatientDataState | undefined, action: Action) {
-  return patientFormReducer(state, action);
-}
+// reducer for whole items
+export const reducer = createReducer(initialState, onNgrxForms());
