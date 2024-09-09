@@ -1,3 +1,4 @@
-import { createAction, createActionGroup, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-export const AddPatient = createAction('[Patient] Add patient');
+export const getPatientData = createAction('[Patient] Get Patient Data');
+export const resetPatientData = createAction('[Patient] Reset Patient Data');

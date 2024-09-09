@@ -1,70 +1,33 @@
-import {
-  Action,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-} from '@ngrx/store';
-import {
-  FormGroupState,
-  createFormGroupState,
-  formGroupReducer,
-  onNgrxForms,
-} from 'ngrx-forms';
-import { Gender } from '../../core/enums/gender_enum';
+import { Action, createReducer, createSelector, on } from '@ngrx/store';
+import { resetPatientData } from './patients.actions';
 
-// 1. Definition for form state
-export interface PatientFormValue {
+export interface Patient {
   name: string;
-  last_name: string;
   age: number;
-  gender: Gender;
 }
-// 2. Initiall form state
-const FORM_ID = 'PatientFormValue';
-const initialFormState = createFormGroupState<PatientFormValue>(FORM_ID, {
-  name: '',
-  last_name: '',
-  age: 0,
-  gender: Gender.nie_podawać,
-});
-
-// 3. Definitions for app state
-export interface PatientDataState {
-  app_name: string;
-  myForm: FormGroupState<PatientFormValue>;
+export interface PatientState {
+  patient: Patient | null;
 }
 
-const initialState: PatientDataState = {
-  app_name: 'PatientsApp',
-  myForm: initialFormState,
+export const initialState: PatientState = {
+  patient: null,
 };
 
 // selectors
-export const selectPatientDataState =
-  createFeatureSelector<PatientDataState>('patientData');
-export const selectAppName = createSelector(
-  selectPatientDataState,
-  (state: PatientDataState) => state.app_name,
+export const selectPatient = createSelector(
+  PatientState,
+  (state: PatientState) => state.patient,
 );
 
-// reducers for form
+// reducers
+export const patientReducer = createReducer(
+  initialState,
+  on(resetPatientData, (state) => ({
+    ...state,
+    patient: null,
+  })),
+);
 
-export function appReducer(
-  state = initialState,
-  action: Action,
-): PatientDataState {
-  const myForm = formGroupReducer(state.myForm, action);
-  if (myForm !== state.myForm) {
-    state = { ...state, myForm };
-  }
-  switch (action.type) {
-    case 'some action type':
-      return state;
-    default: {
-      return state;
-    }
-  }
+export function reducer(state: PatientState | undefined, action: Action) {
+  return patientReducer(state, action);
 }
-
-// reducer for whole items
-export const reducer = createReducer(initialState, onNgrxForms());
