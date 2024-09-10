@@ -1,3 +1,10 @@
+<h1>Patients data</h1>
+<div *ngIf="patientData$ | async as patient">
+  <p>Patients data are</p>
+  <p>Name: {{ patient.name }}</p>
+  <p>Last Name: {{ patient.last_name }}</p>
+  <p>Age: {{ patient.age }}</p>
+</div>
 <!-- <form
   action=""
   class="flex flex-col gap-5 p-5 font-semibold text-xl text-center"

@@ -1,33 +1,32 @@
-import { Action, createReducer, createSelector, on } from '@ngrx/store';
+import { createReducer, createSelector, on } from '@ngrx/store';
 import { resetPatientData } from './patients.actions';
 
 export interface Patient {
-  name: string;
   age: number;
-}
-export interface PatientState {
-  patient: Patient | null;
+  name: string;
+  last_name: string;
 }
 
-export const initialState: PatientState = {
-  patient: null,
+export interface PatientState {
+  patient: Patient;
+}
+
+export const initialPatientState: PatientState = {
+  patient: {
+    age: 0,
+    name: 'Adam',
+    last_name: 'Smith',
+  },
 };
 
 // selectors
-export const selectPatient = createSelector(
-  PatientState,
-  (state: PatientState) => state.patient,
+export const selectPatient = (state: PatientState) => state.patient;
+export const selectPatientData = createSelector(
+  selectPatient,
+  (patient: Patient) => patient,
 );
 
-// reducers
 export const patientReducer = createReducer(
-  initialState,
-  on(resetPatientData, (state) => ({
-    ...state,
-    patient: null,
-  })),
+  initialPatientState, // Initial state
+  on(resetPatientData, () => initialPatientState), // Reset state to initial state on reset action
 );
-
-export function reducer(state: PatientState | undefined, action: Action) {
-  return patientReducer(state, action);
-}

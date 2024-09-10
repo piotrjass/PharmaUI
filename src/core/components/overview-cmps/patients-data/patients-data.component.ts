@@ -11,6 +11,14 @@ import {
 } from '@ng-icons/bootstrap-icons';
 
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {
+  Patient,
+  PatientState,
+  selectPatient,
+} from '../../../../store/patient-store/patients.reducer';
+import { resetPatientData } from '../../../../store/patient-store/patients.actions';
 
 @Component({
   selector: 'app-patients-data',
@@ -32,19 +40,13 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class PatientsDataComponent {
-  // app_name: string = '';
-  // formState$: Observable<FormGroupState<PatientFormValue>>;
-  // constructor(patientStore: Store<PatientDataState>) {
-  //   this.formState$ = patientStore.select((s) => s.myForm);
-  //   patientStore.select(selectAppName).subscribe((name) => {
-  //     this.app_name = name;
-  //     alert('stop!');
-  //     console.log(this.app_name);
-  //   });
-  // }
-  // ngOnInit() {
-  //   console.log('on init sie wykonuje!');
-  //   console.log(this.app_name);
-  //   this.formState$.subscribe((el) => console.log(el));
-  // }
+  patientData$: Observable<Patient>;
+
+  constructor(private patientStore: Store<PatientState>) {
+    this.patientData$ = this.patientStore.select(selectPatient);
+  }
+
+  ngOnInit() {
+    this.patientStore.dispatch(resetPatientData());
+  }
 }
