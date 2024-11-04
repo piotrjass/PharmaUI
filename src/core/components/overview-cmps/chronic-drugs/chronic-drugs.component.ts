@@ -54,5 +54,44 @@ export class ChronicDrugsComponent {
         },
       ],
     },
+    {
+      name: 'Infex zatoki',
+      substances: [
+        {
+          substance: 'Ibuprofenum',
+          dosage: 200,
+        },
+        {
+          substance: 'Pseudoephedrinum',
+          dosage: 30,
+        },
+      ],
+    },
+    {
+      name: 'Infex zatoki',
+      substances: [
+        {
+          substance: 'Ibuprofenum',
+          dosage: 200,
+        },
+        {
+          substance: 'Pseudoephedrinum',
+          dosage: 30,
+        },
+      ],
+    },
+    {
+      name: 'Infex zatoki',
+      substances: [
+        {
+          substance: 'Ibuprofenum',
+          dosage: 200,
+        },
+        {
+          substance: 'Pseudoephedrinum',
+          dosage: 30,
+        },
+      ],
+    },
   ];
 }

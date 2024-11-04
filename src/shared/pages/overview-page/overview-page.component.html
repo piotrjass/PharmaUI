@@ -1,16 +1,24 @@
-<section class="flex flex-col w-full h-[100vh]">
-  <app-top-navbar></app-top-navbar>
-  <div class="h-full flex">
-    <app-side-navbar class="w-[10%]"></app-side-navbar>
-    <div class="w-full flex flex-col relative">
-      <p class="p-5 font-semibold text-2xl drop-shadow-md">
+<section class="flex flex-col w-full h-[100vh] overflow-hidden">
+  <!-- Top navbar remains fixed at the top and does not shrink -->
+  <app-top-navbar class="flex-shrink-0"></app-top-navbar>
+
+  <!-- Main content area with side navbar and dynamic content -->
+  <div class="h-full flex overflow-hidden">
+    <!-- Side navbar remains fixed in width and does not grow or shrink -->
+    <app-side-navbar class="w-[10%] flex-shrink-0"></app-side-navbar>
+
+    <!-- Content area that can expand and scroll independently -->
+    <div class="w-full flex flex-col relative h-full overflow-y-auto">
+      <p class="p-3 drop-shadow-md text-gray-800 font-semibold">
         {{ sectionTitle }}
       </p>
-      <div class="flex items-center justify-center">
+      <!-- Centered router-outlet container that can grow vertically -->
+      <div class="flex items-center justify-center h-full">
         <router-outlet></router-outlet>
       </div>
+
+      <!-- Bottom navigation positioned at the bottom of the content area -->
       <app-overview-nav
-        class="absolute bottom-0 ml-[43%]"
         [back_router_link]="back_router_link"
         [next_router_link]="next_router_link"
       ></app-overview-nav>
