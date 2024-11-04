@@ -1,5 +1,5 @@
 <div
-  class="rounded-2xl p-5 w-[30vw] min-w-[200px] h-[50vh] shadow-xl transition-all duration-300 flex items-center justify-center hover:cursor-pointer"
+  class="border-gray-200 border hover:border-gray-300 p-5 w-[30vw] min-w-[200px] h-[50vh] transition-all duration-300 flex items-center justify-center hover:cursor-pointer"
 >
   <div class="flex flex-col items-center justify-center gap-3">
     <form
@@ -8,17 +8,17 @@
     >
       <label for="">Moduł którego dotyczy problem</label>
       <select
-        class="flex flex-col gap-2 p-2 rounded-full border border-gray-300 font-semibold px-5 bg-transparent shadow-md"
+        class="flex flex-col gap-2 py-2 border border-transparent transition-all duration-300 hover:border-gray-300 px-5 bg-transparent text-center"
         name=""
         id=""
       >
         @for (module of modules; track modules) {
-        <option class="bg-white text-center" [value]="module">
+        <option class="bg-white text-center flex" [value]="module">
           {{ module }}
         </option>
         }
       </select>
-      <label for="">Opis problemu</label>
+      <label for="" class="text-sm text-gray-700">Opis problemu</label>
       <textarea class="min-h-[20vh] font-normal p-2"></textarea>
       <button class="transition-all duration-300 hover:scale-105">
         Wyślij zgłoszenie
