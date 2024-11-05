@@ -8,6 +8,10 @@ import {
   bootstrapPatchPlusFill,
 } from '@ng-icons/bootstrap-icons';
 import { AddDataFormComponent } from '../add-data-form/add-data-form.component';
+import { DiseasesServiceService } from '../../../services/Dieseases/dieseases-service.service';
+import { DiseaseState } from '../../../../store/diseases-store/diseases.reducer';
+import { Store } from '@ngrx/store';
+import { getDiseasesList } from '../../../../store/diseases-store/diseases.selector';
 @Component({
   selector: 'app-diseases-data',
   standalone: true,
@@ -28,6 +32,12 @@ import { AddDataFormComponent } from '../add-data-form/add-data-form.component';
   ],
 })
 export class DiseasesDataComponent {
+  constructor(private diseasesStore: Store<DiseaseState>) {
+    this.diseasesStore
+      .select(getDiseasesList)
+      .subscribe((el) => console.log(el));
+  }
+
   diseases: string[] = [
     'Niedokrwistość hemolityczna',
     'Nadciśnienie tętniczne pierwotne',

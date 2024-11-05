@@ -11,14 +11,12 @@ import {
 } from '@ng-icons/bootstrap-icons';
 
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
-import { provideStore, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import {
   Patient,
   PatientState,
 } from '../../../../store/patient-store/patients.reducer';
 import { getPatientsData } from '../../../../store/patient-store/patients.selector';
-import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-patients-data',
