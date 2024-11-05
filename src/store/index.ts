@@ -5,6 +5,7 @@ import {
   DiseaseReducer,
   DiseaseState,
 } from './diseases-store/diseases.reducer';
+import { DiseasesEffects } from './diseases-store/diseases.effects';
 
 // Define the global application state interface
 export interface State {
@@ -19,4 +20,4 @@ export const reducers: ActionReducerMap<State> = {
 };
 
 // Combine all effects
-export const effects = [PatientsEffects];
+export const effects = [PatientsEffects, DiseasesEffects];

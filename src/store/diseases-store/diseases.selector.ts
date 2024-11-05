@@ -6,7 +6,7 @@ export const selectDiseasesState =
   createFeatureSelector<DiseaseState>('diseases');
 
 // Selector to get the list of diseases
-export const getDiseasesList = createSelector(
+export const getLoadedDiseasesList = createSelector(
   selectDiseasesState,
   (state) => state.Diseases,
 );

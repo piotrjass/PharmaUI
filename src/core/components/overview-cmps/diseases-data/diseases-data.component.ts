@@ -8,10 +8,13 @@ import {
   bootstrapPatchPlusFill,
 } from '@ng-icons/bootstrap-icons';
 import { AddDataFormComponent } from '../add-data-form/add-data-form.component';
-import { DiseasesServiceService } from '../../../services/Dieseases/dieseases-service.service';
 import { DiseaseState } from '../../../../store/diseases-store/diseases.reducer';
 import { Store } from '@ngrx/store';
-import { getDiseasesList } from '../../../../store/diseases-store/diseases.selector';
+import { getDiseasesList } from '../../../../store/diseases-store/diseases.actions';
+import { getLoadedDiseasesList } from '../../../../store/diseases-store/diseases.selector';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-diseases-data',
   standalone: true,
@@ -20,6 +23,7 @@ import { getDiseasesList } from '../../../../store/diseases-store/diseases.selec
     SingleDiseaseComponent,
     NgIconComponent,
     AddDataFormComponent,
+    CommonModule,
   ],
   templateUrl: './diseases-data.component.html',
   styleUrl: './diseases-data.component.css',
@@ -32,14 +36,23 @@ import { getDiseasesList } from '../../../../store/diseases-store/diseases.selec
   ],
 })
 export class DiseasesDataComponent {
+  diseases$: Observable<string[]>;
+
+  // diseases: string[] = [
+  //   'Niedokrwistość hemolityczna',
+  //   'Nadciśnienie tętniczne pierwotne',
+  // ];
+
   constructor(private diseasesStore: Store<DiseaseState>) {
-    this.diseasesStore
-      .select(getDiseasesList)
-      .subscribe((el) => console.log(el));
+    this.diseases$ = this.diseasesStore.select(getLoadedDiseasesList);
   }
 
-  diseases: string[] = [
-    'Niedokrwistość hemolityczna',
-    'Nadciśnienie tętniczne pierwotne',
-  ];
+  ngOnInit() {
+    this.getDiseasesList();
+  }
+
+  getDiseasesList() {
+    console.log('pobieram liste');
+    this.diseasesStore.dispatch(getDiseasesList()); // Dispatch action
+  }
 }

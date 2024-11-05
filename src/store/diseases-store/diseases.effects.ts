@@ -1,33 +1,57 @@
 import { Injectable } from '@angular/core';
-
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DiseasesServiceService } from '../../core/services/Dieseases/dieseases-service.service';
 import {
   getDiseasesList,
   getDiseasesListSuccess,
   resetDiseasesList,
 } from './diseases.actions';
-import { catchError, map, mergeMap, of } from 'rxjs';
-import { Actions } from 'ngrx-forms';
+import { catchError, map, mergeMap, of, tap } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class DiseasesEffects {
   constructor(
     private actions$: Actions,
-    private diseasesSerivce: DiseasesServiceService,
+    private diseasesService: DiseasesServiceService,
   ) {}
+
   loadDiseasesList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getDiseasesList),
       mergeMap(() =>
-        this.diseasesSerivce.getDiseases().pipe(
-          // Use getDiseases instead of getDiseasesList
-          map((diseases) => getDiseasesListSuccess({ diseases })), // Pass diseases to the success action
-          catchError(() => of(getDiseasesListSuccess({ diseases: [] }))), // Handle errors by returning an empty array
+        this.diseasesService.getDiseases().pipe(
+          map((diseases) => {
+            console.log('Fetched diseases from service:', diseases); // Log fetched diseases
+            return getDiseasesListSuccess({ diseases }); // Pass diseases to the success action
+          }),
+          catchError((error) => {
+            console.error('Error fetching diseases:', error); // Log the error
+            return of(getDiseasesListSuccess({ diseases: [] })); // Handle errors by returning an empty array
+          }),
         ),
       ),
     ),
   );
+
+  //   loadDiseasesList$ = createEffect(
+  //     () =>
+  //       this.actions$.pipe(
+  //         ofType(getDiseasesListAction),
+  //         tap(() =>
+  //           this.diseasesService.getDiseases().subscribe(
+  //             (diseases) => {
+  //               console.log('Fetched diseases from service:', diseases); // Log fetched diseases
+  //             },
+  //             (error) => {
+  //               console.error('Error fetching diseases:', error); // Log the error
+  //             },
+  //           ),
+  //         ),
+  //       ),
+  //     { dispatch: false }, // Prevent dispatching any actions from this effect
+  //   );
 
   resetDiseasesList$ = createEffect(
     () =>

@@ -3,7 +3,7 @@
     <label for="" class="text-center font-semibold text-xl"
       >Zadeklarowane choroby
     </label>
-    <div class="flex items-center justify-center gap-3">
+    <!-- <div class="flex items-center justify-center gap-3">
       <select
         name=""
         id=""
@@ -19,13 +19,38 @@
         class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
         name="bootstrapPatchPlusFill"
       ></ng-icon>
+    </div> -->
+
+    <div class="flex items-center justify-center gap-3">
+      <select
+        class="border border-gray-300 bg-white text-md font-normal rounded-xl px-3 py-2"
+      >
+        <ng-container *ngIf="diseases$ | async as diseases; else loading">
+          <option
+            *ngFor="let disease of diseases"
+            [value]="disease"
+            class="px-3 py-2 bg-white"
+          >
+            {{ disease }}
+          </option>
+        </ng-container>
+        <ng-template #loading>
+          <option disabled>Loading diseases...</option>
+        </ng-template>
+      </select>
+      <ng-icon
+        class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
+        name="bootstrapPatchPlusFill"
+      ></ng-icon>
     </div>
   </form>
-  <div class="flex flex-col gap-5 mt-10">
+
+  <!-- <div class="flex flex-col gap-5 mt-10">
     @for(disease of diseases; track diseases; let i = $index){
     <app-single-disease [index]="i + 1" [name]="disease"></app-single-disease>
     }
-  </div>
+  </div> -->
+
   <app-add-data-form></app-add-data-form>
 </section>
 
