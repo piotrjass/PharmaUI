@@ -5,8 +5,10 @@
     name=""
     id=""
     class="border border-gray-300 rounded-2xl p-2"
+    [(ngModel)]="diseaseName"
   />
   <button
+    (click)="addToPatientDiseasesList()"
     class="font-semibold hover:text-gray-600 transition-all duration-300 mt-5 flex justify-items-center gap-3"
   >
     <p>Dodaj</p>

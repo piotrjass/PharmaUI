@@ -16,7 +16,8 @@ import {
   Patient,
   PatientState,
 } from '../../../../store/patient-store/patients.reducer';
-import { getPatientsData } from '../../../../store/patient-store/patients.selector';
+import { getPatientsDataSelector } from '../../../../store/patient-store/patients.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-patients-data',
@@ -38,11 +39,8 @@ import { getPatientsData } from '../../../../store/patient-store/patients.select
   ],
 })
 export class PatientsDataComponent {
-  patientsData: Patient[] = [];
+  patientsData$: Observable<Patient>;
   constructor(private patientStore: Store<PatientState>) {
-    this.patientStore.select(getPatientsData).subscribe((el) => {
-      console.log('Current patients data:', el);
-      this.patientsData = el;
-    });
+    this.patientsData$ = this.patientStore.select(getPatientsDataSelector);
   }
 }

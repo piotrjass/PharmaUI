@@ -14,6 +14,12 @@ import { getDiseasesList } from '../../../../store/diseases-store/diseases.actio
 import { getLoadedDiseasesList } from '../../../../store/diseases-store/diseases.selector';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import {
+  Patient,
+  PatientState,
+} from '../../../../store/patient-store/patients.reducer';
+import { addDiseasesToPatientDiseasesList } from '../../../../store/patient-store/patients.actions';
+import { getPatientDiseasesSelector } from '../../../../store/patient-store/patients.selector';
 
 @Component({
   selector: 'app-diseases-data',
@@ -37,14 +43,23 @@ import { CommonModule } from '@angular/common';
 })
 export class DiseasesDataComponent {
   diseases$: Observable<string[]>;
+  patientDiseases$: Observable<string[]>;
+  selectedDisease: string = '';
+  // patientsDiseases: Observable<string[]>;
 
-  // diseases: string[] = [
-  //   'Niedokrwistość hemolityczna',
-  //   'Nadciśnienie tętniczne pierwotne',
-  // ];
-
-  constructor(private diseasesStore: Store<DiseaseState>) {
+  constructor(
+    private diseasesStore: Store<DiseaseState>,
+    private patientStore: Store<PatientState>,
+  ) {
     this.diseases$ = this.diseasesStore.select(getLoadedDiseasesList);
+    this.patientDiseases$ = this.patientStore.select(
+      getPatientDiseasesSelector,
+    );
+  }
+
+  onDiseaseSelected(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.selectedDisease = target.value;
   }
 
   ngOnInit() {
@@ -52,7 +67,14 @@ export class DiseasesDataComponent {
   }
 
   getDiseasesList() {
-    console.log('pobieram liste');
     this.diseasesStore.dispatch(getDiseasesList()); // Dispatch action
+  }
+
+  addToPatientDiseasesList(disease: string) {
+    if (disease) {
+      this.patientStore.dispatch(addDiseasesToPatientDiseasesList({ disease }));
+    } else {
+      console.warn('No disease selected!');
+    }
   }
 }

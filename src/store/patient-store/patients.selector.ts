@@ -6,7 +6,12 @@ export const selectPatientsDataState =
   createFeatureSelector<PatientState>('patients');
 
 // Selector to get the list of patients
-export const getPatientsData = createSelector(
+export const getPatientsDataSelector = createSelector(
   selectPatientsDataState,
   (state) => state.patients,
+);
+//
+export const getPatientDiseasesSelector = createSelector(
+  getPatientsDataSelector,
+  (patient) => patient.diseases,
 );

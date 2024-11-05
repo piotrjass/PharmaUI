@@ -35,24 +35,6 @@ export class DiseasesEffects {
     ),
   );
 
-  //   loadDiseasesList$ = createEffect(
-  //     () =>
-  //       this.actions$.pipe(
-  //         ofType(getDiseasesListAction),
-  //         tap(() =>
-  //           this.diseasesService.getDiseases().subscribe(
-  //             (diseases) => {
-  //               console.log('Fetched diseases from service:', diseases); // Log fetched diseases
-  //             },
-  //             (error) => {
-  //               console.error('Error fetching diseases:', error); // Log the error
-  //             },
-  //           ),
-  //         ),
-  //       ),
-  //     { dispatch: false }, // Prevent dispatching any actions from this effect
-  //   );
-
   resetDiseasesList$ = createEffect(
     () =>
       this.actions$.pipe(

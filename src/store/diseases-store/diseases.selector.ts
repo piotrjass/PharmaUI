@@ -10,3 +10,4 @@ export const getLoadedDiseasesList = createSelector(
   selectDiseasesState,
   (state) => state.Diseases,
 );
+//

@@ -3,6 +3,7 @@
     <label for="" class="text-center font-semibold text-xl"
       >Zadeklarowane choroby
     </label>
+
     <!-- <div class="flex items-center justify-center gap-3">
       <select
         name=""
@@ -24,6 +25,7 @@
     <div class="flex items-center justify-center gap-3">
       <select
         class="border border-gray-300 bg-white text-md font-normal rounded-xl px-3 py-2"
+        (change)="onDiseaseSelected($event)"
       >
         <ng-container *ngIf="diseases$ | async as diseases; else loading">
           <option
@@ -41,15 +43,18 @@
       <ng-icon
         class="text-2xl cursor-pointer transition-all duration-300 hover:font-semibold"
         name="bootstrapPatchPlusFill"
+        (click)="addToPatientDiseasesList(selectedDisease)"
       ></ng-icon>
     </div>
   </form>
 
-  <!-- <div class="flex flex-col gap-5 mt-10">
-    @for(disease of diseases; track diseases; let i = $index){
-    <app-single-disease [index]="i + 1" [name]="disease"></app-single-disease>
-    }
-  </div> -->
+  <div class="flex flex-col gap-5 mt-10">
+    <ng-container *ngIf="patientDiseases$ | async as diseases; else loading">
+      @for(disease of diseases; track disease; let i = $index){
+      <app-single-disease [index]="i + 1" [name]="disease"></app-single-disease>
+      }
+    </ng-container>
+  </div>
 
   <app-add-data-form></app-add-data-form>
 </section>
