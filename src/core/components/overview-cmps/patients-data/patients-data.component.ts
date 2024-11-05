@@ -12,13 +12,13 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { provideStore, Store } from '@ngrx/store';
 import {
   Patient,
   PatientState,
-  selectPatient,
 } from '../../../../store/patient-store/patients.reducer';
-import { resetPatientData } from '../../../../store/patient-store/patients.actions';
+import { getPatientsData } from '../../../../store/patient-store/patients.selector';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-patients-data',
@@ -40,13 +40,11 @@ import { resetPatientData } from '../../../../store/patient-store/patients.actio
   ],
 })
 export class PatientsDataComponent {
-  patientData$: Observable<Patient>;
-
+  patientsData: Patient[] = [];
   constructor(private patientStore: Store<PatientState>) {
-    this.patientData$ = this.patientStore.select(selectPatient);
-  }
-
-  ngOnInit() {
-    this.patientStore.dispatch(resetPatientData());
+    this.patientStore.select(getPatientsData).subscribe((el) => {
+      console.log('Current patients data:', el);
+      this.patientsData = el;
+    });
   }
 }
