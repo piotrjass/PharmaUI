@@ -14,6 +14,7 @@ import {
   bootstrapPenFill,
   bootstrapPersonFillGear,
   bootstrapExclamationTriangleFill,
+  bootstrapInfoCircleFill,
 } from '@ng-icons/bootstrap-icons';
 import { CommonModule } from '@angular/common';
 
@@ -33,6 +34,7 @@ import { CommonModule } from '@angular/common';
       bootstrapPenFill,
       bootstrapExclamationTriangleFill,
       bootstrapPersonFillGear,
+      bootstrapInfoCircleFill,
     }),
   ],
 })
@@ -68,6 +70,12 @@ export class MainMenuCardsContainerComponent {
     {
       title: 'Edukacja',
       icon: 'bootstrapPenFill',
+      isActive: false,
+    },
+    {
+      title: 'Informacje',
+      icon: 'bootstrapInfoCircleFill',
+      route: '/information',
       isActive: false,
     },
     {
