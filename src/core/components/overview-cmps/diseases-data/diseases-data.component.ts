@@ -18,7 +18,10 @@ import {
   Patient,
   PatientState,
 } from '../../../../store/patient-store/patients.reducer';
-import { addDiseasesToPatientDiseasesList } from '../../../../store/patient-store/patients.actions';
+import {
+  addDiseasesToPatientDiseasesList,
+  removeDiseasesToPatientDiseasesList,
+} from '../../../../store/patient-store/patients.actions';
 import { getPatientDiseasesSelector } from '../../../../store/patient-store/patients.selector';
 
 @Component({
@@ -55,6 +58,7 @@ export class DiseasesDataComponent {
     this.patientDiseases$ = this.patientStore.select(
       getPatientDiseasesSelector,
     );
+    this.diseases$.subscribe((list) => (this.selectedDisease = list[0]));
   }
 
   onDiseaseSelected(event: Event) {
@@ -76,5 +80,11 @@ export class DiseasesDataComponent {
     } else {
       console.warn('No disease selected!');
     }
+  }
+
+  removeItemForList(disease: string) {
+    this.patientStore.dispatch(
+      removeDiseasesToPatientDiseasesList({ disease: disease }),
+    );
   }
 }

@@ -51,7 +51,11 @@
   <div class="flex flex-col gap-5 mt-10">
     <ng-container *ngIf="patientDiseases$ | async as diseases; else loading">
       @for(disease of diseases; track disease; let i = $index){
-      <app-single-disease [index]="i + 1" [name]="disease"></app-single-disease>
+      <app-single-disease
+        [index]="i + 1"
+        [name]="disease"
+        (removeDisease)="removeItemForList(disease)"
+      ></app-single-disease>
       }
     </ng-container>
   </div>

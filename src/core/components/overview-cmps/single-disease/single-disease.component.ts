@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   bootstrapXCircle,
@@ -8,6 +8,9 @@ import {
   bootstrapPatchMinusFill,
   bootstrapPatchPlusFill,
 } from '@ng-icons/bootstrap-icons';
+import { PatientState } from '../../../../store/patient-store/patients.reducer';
+import { Store } from '@ngrx/store';
+import { removeDiseasesToPatientDiseasesList } from '../../../../store/patient-store/patients.actions';
 @Component({
   selector: 'app-single-disease',
   standalone: true,
@@ -26,4 +29,8 @@ import {
 export class SingleDiseaseComponent {
   @Input() name: string = 'Drug name';
   @Input() index: number = 0;
+  @Output() removeDisease = new EventEmitter<string>();
+  remove() {
+    this.removeDisease.emit(this.name);
+  }
 }

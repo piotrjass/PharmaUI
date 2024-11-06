@@ -23,6 +23,13 @@
     id=""
     class="border border-gray-300 text-md font-normal rounded-lg px-3 py-2"
   />
+  <label for="">Waga</label>
+  <input
+    type="number"
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-lg px-3 py-2"
+  />
   <label for="">Płeć</label>
   <select
     name=""
@@ -33,8 +40,35 @@
     <option value="Żeńska">Żeńska</option>
     <option value="Nie podawać">Nie podawać</option>
   </select>
-</form>
 
+  <label for="">Ciąża</label>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-lg p-2 bg-white"
+  >
+    <option value="Męska">Tak</option>
+    <option value="Żeńska">Nie</option>
+  </select>
+  <label for="">Karmienie piersią</label>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-lg p-2 bg-white"
+  >
+    <option value="Żeńska">Nie</option>
+    <option value="Męska">Tak</option>
+  </select>
+  <label for="">Osoba 65+</label>
+  <select
+    name=""
+    id=""
+    class="border border-gray-300 text-md font-normal rounded-lg p-2 bg-white"
+  >
+    <option value="Żeńska">Nie</option>
+    <option value="Męska">Tak</option>
+  </select>
+</form>
 <!-- <h1>Data starts!</h1>
 <ng-container *ngIf="formState$ | async as formState">
   <form novalidate [ngrxFormState]="formState" class="bg-red-100">

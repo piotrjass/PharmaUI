@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class AddDrugFormComponent {
-  showAddDrugSection: boolean = true;
+  showAddDrugSection: boolean = false;
 
   toggleShowAddDrugSection() {
     this.showAddDrugSection = !this.showAddDrugSection;

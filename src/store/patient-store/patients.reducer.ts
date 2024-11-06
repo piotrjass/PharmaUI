@@ -2,6 +2,7 @@ import { createReducer, createSelector, on } from '@ngrx/store';
 import {
   addDiseasesToPatientDiseasesList,
   getPatientData,
+  removeDiseasesToPatientDiseasesList,
   resetPatientData,
 } from './patients.actions';
 
@@ -36,6 +37,14 @@ export const patientReducer = createReducer(
     patients: {
       ...state.patients,
       diseases: [...state.patients.diseases, disease], // Add the new disease to the list
+    },
+  })),
+  //
+  on(removeDiseasesToPatientDiseasesList, (state, { disease }) => ({
+    ...state,
+    patients: {
+      ...state.patients,
+      diseases: state.patients.diseases.filter((d) => d !== disease), // Usuwa chorobę z listy
     },
   })),
   //

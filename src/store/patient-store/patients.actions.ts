@@ -8,7 +8,7 @@ export const addDiseasesToPatientDiseasesList = createAction(
 );
 // removing
 export const removeDiseasesToPatientDiseasesList = createAction(
-  '[Patient] Remove Diseases To Patient Diseases List',
+  '[Patient] Remove Disease From Patient Diseases List',
   props<{ disease: string }>(),
 );
 // reseting

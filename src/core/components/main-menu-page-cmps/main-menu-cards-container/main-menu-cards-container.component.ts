@@ -76,11 +76,11 @@ export class MainMenuCardsContainerComponent {
       isActive: true,
       route: '/report-error',
     },
-    {
-      title: 'Panel moderacji',
-      icon: 'bootstrapPersonFillGear',
-      isActive: true,
-      route: '/moderator-page/diseases',
-    },
+    // {
+    //   title: 'Panel moderacji',
+    //   icon: 'bootstrapPersonFillGear',
+    //   isActive: true,
+    //   route: '/moderator-page/diseases',
+    // },
   ];
 }
