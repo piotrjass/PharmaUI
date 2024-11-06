@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
+import { RouterModule, RouterLink, Router } from '@angular/router';
 //
 import { MainMenuCardComponent } from '../main-menu-card/main-menu-card.component';
 //
@@ -15,11 +15,12 @@ import {
   bootstrapPersonFillGear,
   bootstrapExclamationTriangleFill,
 } from '@ng-icons/bootstrap-icons';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-menu-cards-container',
   standalone: true,
-  imports: [MainMenuCardComponent, RouterModule, RouterLink],
+  imports: [MainMenuCardComponent, RouterModule, RouterLink, CommonModule],
   templateUrl: './main-menu-cards-container.component.html',
   styleUrl: './main-menu-cards-container.component.css',
   viewProviders: [
@@ -44,13 +45,13 @@ export class MainMenuCardsContainerComponent {
       route: '/overview/patient-data',
     },
     {
-      title: 'Archiwum',
-      icon: 'bootstrapArchive',
+      title: 'Baza przeglądów',
+      icon: 'bootstrapStack',
       isActive: false,
     },
     {
-      title: 'Baza przeglądów',
-      icon: 'bootstrapStack',
+      title: 'Archiwum',
+      icon: 'bootstrapArchive',
       isActive: false,
     },
     {
