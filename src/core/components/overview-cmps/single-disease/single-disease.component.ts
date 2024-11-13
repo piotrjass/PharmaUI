@@ -29,6 +29,7 @@ import { removeDiseasesToPatientDiseasesList } from '../../../../store/patient-s
 export class SingleDiseaseComponent {
   @Input() name: string = 'Drug name';
   @Input() index: number = 0;
+  //
   @Output() removeDisease = new EventEmitter<string>();
   remove() {
     this.removeDisease.emit(this.name);
