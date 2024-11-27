@@ -1,0 +1,6 @@
+<p>test works!</p>
+<ul *ngIf="diseases | async as diseases">
+  @for(d of diseases; track d) {
+  <li>{{ d }}</li>
+  }
+</ul>
